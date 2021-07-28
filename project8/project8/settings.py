@@ -148,7 +148,7 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_FILE_STORAGES='app8.aws_storages.DynamiFiles'
+DEFAULT_FILE_STORAGES='app8.aws_storages.DynamicFiles'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
