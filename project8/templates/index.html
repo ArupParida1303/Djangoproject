@@ -64,7 +64,7 @@
                 <th>
 
 
-                <form action="{% url 'delete' %}", method="post">
+                <form action="{% url 'delete' %}",method="post" enctype="multipart/form-data">
                    {% csrf_token %}
                 <input type="hidden" value="{{ photo.pno }}" name="idno" readonly>
                <button type="submit" class="btn btn-danger">yes</button>
