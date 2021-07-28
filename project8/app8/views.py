@@ -10,12 +10,12 @@ def show(request):
 
 
 def save_photo(request):
-    id = request.POST.get("iid")
-    name = request.POST.get("iname")
-    price = request.POST.get("iprice")
-    photo = request.FILES['iphoto']
-    Product_Model(pno=id, pname=name,pprice=price,pphoto=photo).save()
-    return redirect('index')
+    id = request.POST.get("pno")
+    name = request.POST.get("name")
+    price = request.POST.get("price")
+    photo = request.FILES['photo']
+    Product_Model(pno=id, name=name,price=price,photo=photo).save()
+    return redirect('main')
 
 
 def delete(request):
