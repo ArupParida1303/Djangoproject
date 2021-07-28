@@ -20,7 +20,7 @@ from app8 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("index/",views.show,name="index"),
+    path("index/",views.show,name='index'),
     path('save_photo/',views.save_photo,name="save_photo"),
     path('delete/',views.delete,name="delete")
 ]
