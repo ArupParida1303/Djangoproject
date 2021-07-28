@@ -1,0 +1,84 @@
+
+{% load static %}
+<html>
+    <body>
+
+
+    <form action="{% url 'save_photo' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    <table align="center" border="2" bgcolor="#ffe4c4">
+        <tr>
+            <th style="color: orange" bgcolor="#faebd7">
+                Enter Your Product Details
+            </th>
+        </tr>
+        <tr>
+              <th>
+                <input type="number" placeholder="Product No" name="iid">
+            </th></tr>
+        <tr>
+               <th>
+                <input type="text" placeholder="Product Name" name="iname">
+            </th><br>
+        </tr>
+        <tr>
+               <th>
+                <input type="number" placeholder="Product price" name="iprice">
+            </th><br>
+        </tr>
+        <tr>
+            <th>
+                Product Photo : <input type="file" name="iphoto">
+            </th><br>
+        </tr>
+        <tr>
+            <th>
+                <button type="submit">Save Product</button>
+            </th>
+        </tr>
+    </table>
+        </form>
+
+    <table>
+        <tr>
+
+            <th style="color:black;">Product Idno</th>
+            <th style="color:black;" width="200">Product Name</th>
+            <th style="color:black;" width="200">Product Price</th>
+            <th style="color:black;" width="150">Product Photo</th>
+            <th style="color:black;">Delete Product</th>
+
+        </tr>
+    </table>
+
+        {% for photo in photos %}
+            <table>
+            <tr>
+               <th style="color:black;">{{ photo.pno }}</th>
+            <th style="color:black;" width="200">{{ photo.pname }}</th>
+            <th style="color:black;" width="200">{{ photo.pprice }}</th>
+
+                <th style="color:black;" width="150" height="100">
+                    <img src="{{ photo.pphoto.url }}">
+                </th>
+                <th>
+
+
+                <form action="{% url 'delete' %}", method="post">
+                   {% csrf_token %}
+                <input type="hidden" value="{{ photo.pno }}" name="idno" readonly>
+               <button type="submit" class="btn btn-danger">yes</button>
+                   </form>
+
+
+                </th>
+            </tr>
+        {% endfor %}
+
+        </table>
+
+
+
+
+    </body>
+</html>
